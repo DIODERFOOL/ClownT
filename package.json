@@ -1,0 +1,14 @@
+{
+  "name": "clownt",
+  "version": "0.0.1",
+  "description": "Multipurpose bot for discord servers, mainly focus on server managment and chat moderation with added fun commands and some music funcionality.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ClownT"
+  ],
+  "author": "DIODERFOOL",
+  "license": "ISC"
+}
