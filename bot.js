@@ -15,8 +15,8 @@ fs.readdir("./Events/", (err, files) => {
 })
 
 client.on('message', msg => {
-  if(!msg.content.startsWith(config.Prefix)) return;
   if(msg.author.bot) return;
+  if(!msg.content.startsWith(config.Prefix)) return;
 
   let command = msg.content.split(" ")[0];
   command = command.slice(config.Prefix.lenght);

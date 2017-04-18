@@ -1,3 +1,3 @@
 exports.run = (client, message, args) =>{
-  message.reply("pong!");
+  msg.reply("pong!");
 }
