@@ -10,5 +10,8 @@
     "ClownT"
   ],
   "author": "DIODERFOOL",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.0.0"
+  }
 }
