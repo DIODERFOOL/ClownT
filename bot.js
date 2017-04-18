@@ -1,16 +1,18 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
+const fs = require("fs");
 
 client.login(config.Token);
 
-client.on('ready', () => {
-  console.log("I'm ready to rock");
-});
-
-client.on('guildMemberAdd', member =>{
-
-});
+fs.readdir("./Events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    let eventFunction = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, (...args) => eventFunction.run(client, ...args));
+  });
+})
 
 client.on('message', msg => {
   if(!msg.content.startsWith(config.prefix)) return;
@@ -21,7 +23,10 @@ client.on('message', msg => {
 
   let args = msg.content.split(" ").slice(1);
 
-  if (command === "ping"){
-    msg.reply('pong');
+  try {
+    let commandFile = require(`./Commands/${command}.js`);
+    commandsFile.run(client, message, args);
+  } catch(err) {
+    console.log(err);
   }
 });
