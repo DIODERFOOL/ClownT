@@ -14,14 +14,14 @@ fs.readdir("./Events/", (err, files) => {
   });
 })
 
-client.on('message', message => {
-  if(!message.content.startsWith(config.Prefix)) return;
-  if(message.author.bot) return;
+client.on('message', msg => {
+  if(!msg.content.startsWith(config.Prefix)) return;
+  if(msg.author.bot) return;
 
-  let command = message.content.split(" ")[0];
+  let command = msg.content.split(" ")[0];
   command = command.slice(config.Prefix.lenght);
 
-  let args = message.content.split(" ").slice(1);
+  let args = msg.content.split(" ").slice(1);
 
   try {
     let commandFile = require(`./Commands/${command}.js`);
