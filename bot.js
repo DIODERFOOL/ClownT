@@ -14,19 +14,20 @@ fs.readdir("./Events/", (err, files) => {
   });
 })
 
-client.on('message', msg => {
-  if(msg.author.bot) return;
-  if(!msg.content.startsWith(config.Prefix)) return;
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(config.prefix)) return;
 
-  let command = msg.content.split(" ")[0];
-  command = command.slice(config.Prefix.lenght);
+  let command = message.content.split(" ")[0];
+  command = command.slice(config.prefix.length);
 
-  let args = msg.content.split(" ").slice(1);
+  let args = message.content.split(" ").slice(1);
+  // The list of if/else is replaced with those simple 2 lines:
 
   try {
     let commandFile = require(`./Commands/${command}.js`);
-    commandsFile.run(client, message, args);
-  } catch(err) {
-    console.log(err);
+    commandFile.run(client, message, args);
+  } catch (err) {
+    console.error(err);
   }
 });
