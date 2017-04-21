@@ -25,6 +25,7 @@ exports.run = (client, message, args) => {
     footer: {
       icon_url: client.user.avatarURL,
       text: 'Discord bot'
+      
     }
   });
 };
