@@ -1,4 +1,4 @@
 exports.run = (client, message, args) => {
-  var messagesToDelete = 100;
-  client.sweepMessages([messagesToDelete]);
+  message.channel.bulkDelete(50);
+  message.channel.sendMessage(":fire:" + " Borrado ALV " + ":fire:")
 }
